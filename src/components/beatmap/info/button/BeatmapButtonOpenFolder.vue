@@ -1,9 +1,9 @@
 <template>
-  <Tooltip text="Open folder">
-    <v-btn icon @click="openFolder">
-      <v-icon>folder</v-icon>
-    </v-btn>
-  </Tooltip>
+    <Tooltip text="Open folder">
+        <v-btn icon @click="openFolder">
+            <v-icon>folder</v-icon>
+        </v-btn>
+    </Tooltip>
 </template>
 
 <script lang="ts">
@@ -14,19 +14,19 @@ import Tooltip from "@/components/helper/Tooltip.vue";
 import BeatmapLibrary from "@/libraries/beatmap/BeatmapLibrary";
 
 export default Vue.extend({
-  name: "BeatmapButtonOpenFolder",
-  components: { Tooltip },
-  props: {
-    beatmap: { type: Object as PropType<BeatsaverBeatmap>, required: true },
-  },
-  methods: {
-    openFolder(): void {
-      const local = BeatmapLibrary.GetMapByHash(this.beatmap.hash);
-
-      if (local) {
-        shell.openItem(local.folderPath);
-      }
+    name: "BeatmapButtonOpenFolder",
+    components: { Tooltip },
+    props: {
+        beatmap: { type: Object as PropType<BeatsaverBeatmap>, required: true },
     },
-  },
+    methods: {
+        openFolder(): void {
+            const local = BeatmapLibrary.GetMapByHash(this.beatmap.hash);
+
+            if (local) {
+                shell.openPath(local.folderPath);
+            }
+        },
+    },
 });
 </script>

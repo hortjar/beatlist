@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: ["vue", "jest", "@typescript-eslint", "vuetify", "prettier"],
   rules: {
-    "prettier/prettier": "error",
+    "prettier/prettier": "off",
     "no-console": "off",
     "vue/html-closing-bracket-spacing": "off",
     "no-underscore-dangle": "off",
